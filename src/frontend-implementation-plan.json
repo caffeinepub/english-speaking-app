@@ -1,0 +1,181 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "English Teacher - Frontend Implementation",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Create a user interface for English speaking practice sessions where learners can view conversation prompts and practice speaking exercises",
+      "acceptanceCriteria": [
+        "Display conversation prompts clearly on screen",
+        "Provide a clean, distraction-free interface for speaking practice",
+        "Show different types of speaking exercises (e.g., pronunciation, conversation, storytelling)"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/PracticePage.tsx",
+          "operation": "create",
+          "description": "Create the main practice page that displays available speaking prompts organized by difficulty level (beginner, intermediate, advanced). Include filters/tabs for different exercise types. Wire generated images: use frontend/public/assets/generated/microphone-icon.dim_64x64.png for practice action buttons and frontend/public/assets/generated/learning-illustration.dim_400x300.png for decorative elements."
+        },
+        {
+          "path": "frontend/src/pages/SessionPage.tsx",
+          "operation": "create",
+          "description": "Create the active session page where learners view the selected prompt details, start/complete practice sessions, and provide a recording URL input. Display prompt title, description, and difficulty level with a clean, distraction-free layout focused on the speaking exercise."
+        },
+        {
+          "path": "frontend/src/components/PromptCard.tsx",
+          "operation": "create",
+          "description": "Create a reusable component to display individual speaking prompts with title, description, difficulty level badge, and action button to start practice."
+        },
+        {
+          "path": "frontend/src/components/SessionHistory.tsx",
+          "operation": "create",
+          "description": "Create a component to display user's past practice sessions with status indicators (in progress, completed, reviewed), timestamps, and any feedback received from teachers."
+        },
+        {
+          "path": "frontend/src/hooks/usePrompts.ts",
+          "operation": "create",
+          "description": "Create a custom hook using React Query to fetch all prompts via getAllPrompts() and individual prompt details via getPrompt(). Handle loading and error states."
+        },
+        {
+          "path": "frontend/src/hooks/useSessions.ts",
+          "operation": "create",
+          "description": "Create a custom hook using React Query to fetch user sessions via getUserSessions(), start sessions via startSession(), and complete sessions via completeSession(). Include mutations with proper cache invalidation."
+        },
+        {
+          "path": "frontend/src/components/LoginButton.tsx",
+          "operation": "create",
+          "description": "Create login/logout button component using Internet Identity authentication from the authorization component. Handle login, logout, and loading states. Clear query cache on logout. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/ProfileSetupModal.tsx",
+          "operation": "create",
+          "description": "Create modal that appears on first login to collect user name via saveCallerUserProfile(). Use the authorization component's profile setup pattern to prevent modal flash. Include name input and role indication (student by default). Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/hooks/useUserProfile.ts",
+          "operation": "create",
+          "description": "Create custom hook to fetch and manage user profile using getCallerUserProfile() and saveCallerUserProfile(). Follow the authorization component's pattern for preventing profile setup modal flash. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/UserProfileDisplay.tsx",
+          "operation": "create",
+          "description": "Create component to display user name and role badge in the header. Fetch profile via useUserProfile hook and show friendly name instead of principal ID."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Implement teacher/instructor functionality that allows viewing and managing student speaking practice sessions",
+      "acceptanceCriteria": [
+        "Teacher can view list of students and their practice activities",
+        "Teacher can access student speaking practice records",
+        "Clear separation between student and teacher views"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/TeacherDashboard.tsx",
+          "operation": "create",
+          "description": "Create teacher dashboard page that displays all student sessions via getAllSessions(). Use the authorization component to verify admin/teacher role access. Show student names, session prompts, statuses, and timestamps in a table or card grid. Include navigation to detailed session review. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/SessionReviewPage.tsx",
+          "operation": "create",
+          "description": "Create session review page where teachers can view session details (prompt, student, recording URL, timestamps) and submit feedback via reviewSession(). Guard with admin-only access using the authorization component. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/SessionReviewForm.tsx",
+          "operation": "create",
+          "description": "Create a form component for teachers to submit feedback on student sessions. Include textarea for feedback and submit button that calls reviewSession() mutation."
+        },
+        {
+          "path": "frontend/src/hooks/useTeacherSessions.ts",
+          "operation": "create",
+          "description": "Create a custom hook for teacher-specific session queries using getAllSessions() and reviewSession() mutation with proper authorization checks and cache invalidation."
+        },
+        {
+          "path": "frontend/src/components/RoleGuard.tsx",
+          "operation": "create",
+          "description": "Create a guard component that checks user role via getCallerUserRole() and conditionally renders content or redirects based on required role (student vs teacher/admin). Use the authorization component to support role-based access control. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/AccessDeniedScreen.tsx",
+          "operation": "create",
+          "description": "Create access denied screen component to display when unauthorized users attempt to access restricted areas (teacher dashboard, admin functions). Use the authorization component's UI patterns. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/Navigation.tsx",
+          "operation": "create",
+          "description": "Create navigation component with links to Practice, Library, and conditionally Teacher Dashboard (if admin/teacher role). Include LoginButton and UserProfileDisplay. Show SessionHistory link for students."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Register routes for TeacherDashboard (/teacher) and SessionReviewPage (/teacher/review/:sessionId). Apply RoleGuard to teacher routes to ensure only admins can access them."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Create a library of English speaking exercise prompts covering different proficiency levels and topics",
+      "acceptanceCriteria": [
+        "Include beginner, intermediate, and advanced level prompts",
+        "Cover various topics such as daily conversations, professional scenarios, and descriptive exercises",
+        "Prompts are stored in the backend and retrievable by the frontend"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/PromptLibrary.tsx",
+          "operation": "create",
+          "description": "Create prompt library page that displays all prompts organized by difficulty level and topic categories. Include filters for level (beginner/intermediate/advanced) and search functionality. Use getAllPrompts() to fetch data."
+        },
+        {
+          "path": "frontend/src/components/PromptFilters.tsx",
+          "operation": "create",
+          "description": "Create filter component with difficulty level selector (beginner, intermediate, advanced) and topic category filters to help users find relevant speaking exercises."
+        },
+        {
+          "path": "frontend/src/pages/AdminPromptManagement.tsx",
+          "operation": "create",
+          "description": "Create admin-only page for creating new prompts via createPrompt(). Guard with admin role check using the authorization component. Include form with title, description, and difficulty level inputs. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Register routes for PromptLibrary (/library) and AdminPromptManagement (/admin/prompts). Apply RoleGuard to admin route. Wire PracticePage (/practice) and SessionPage (/session/:sessionId) routes. Include Layout wrapper and ProfileSetupModal."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Design a creative, engaging visual theme with warm, educational aesthetics that encourages language learning",
+      "acceptanceCriteria": [
+        "Visual theme is consistent across all pages and components",
+        "Color palette and typography create a friendly, educational atmosphere",
+        "Layout promotes focus and reduces cognitive load during practice sessions"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Update global styles with warm, educational color palette (soft oranges, blues, greens), friendly typography (rounded sans-serif fonts), and spacing variables that promote focus and readability."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend Tailwind theme with custom colors for educational branding (primary warm orange/coral, secondary calming blue, success green, neutral warm grays), custom font families with welcoming appearance, and spacing scale optimized for learning interfaces."
+        },
+        {
+          "path": "frontend/src/components/Layout.tsx",
+          "operation": "create",
+          "description": "Create main layout component with consistent header (navigation, user profile, login/logout), footer, and content area. Wire generated image: use frontend/public/assets/generated/teacher-hero.dim_800x600.png as a hero image in the header/welcome section. Apply warm educational theme colors and spacing."
+        },
+        {
+          "path": "frontend/src/components/WelcomeHero.tsx",
+          "operation": "create",
+          "description": "Create welcoming hero component for the main landing area that uses frontend/public/assets/generated/teacher-hero.dim_800x600.png. Include motivational messaging for language learners with warm, encouraging copy."
+        }
+      ]
+    }
+  ]
+}

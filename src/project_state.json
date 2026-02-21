@@ -1,0 +1,68 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "English speaking app with teacher functionality",
+  "architectural_notes": [],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Friendly teacher illustration with welcoming expression for homepage hero section (teacher-hero.dim_800x600.png)\n- Simple microphone icon for speaking practice button (microphone-icon.dim_64x64.png)\n- Book and speech bubble illustration for learning sections (learning-illustration.dim_400x300.png)",
+  "existing_features": [
+    {
+      "id": "feature-create-a-user-interface-for-english-speaking-practice-sessions-where-learners-can-view-conversation-prompts-and-practice-speaking-exercises",
+      "title": "Create a user interface for English speaking practice sessions where learners can view conversation prompts and practice speaking exercises",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-teacher-instructor-functionality-that-allows-viewing-and-managing-student-speaking-practice-sessions",
+      "title": "Implement teacher/instructor functionality that allows viewing and managing student speaking practice sessions",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-library-of-english-speaking-exercise-prompts-covering-different-proficiency-levels-and-topics",
+      "title": "Create a library of English speaking exercise prompts covering different proficiency levels and topics",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-design-a-creative-engaging-visual-theme-with-warm-educational-aesthetics-that-encourages-language-learning-using-colors-and-typography-that-feel-welcoming-and-motivating-for-learners-of-all-ages",
+      "title": "Design a creative, engaging visual theme with warm, educational aesthetics that encourages language learning, using colors and typography that feel welcoming and motivating for learners of all ages",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "English speaking practice functionality",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Teacher/instructor features",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Store speaking practice session data including exercise prompts, completion status, and timestamps in the backend",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "status": "pending"
+    }
+  ],
+  "projectName": "English Speaking App",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

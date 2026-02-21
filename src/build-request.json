@@ -1,0 +1,99 @@
+{
+  "kind": "build_request",
+  "title": "Create English speaking practice app with teacher functionality",
+  "projectName": "English Teacher",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create a user interface for English speaking practice sessions where learners can view conversation prompts and practice speaking exercises",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Display conversation prompts clearly on screen",
+        "Provide a clean, distraction-free interface for speaking practice",
+        "Show different types of speaking exercises (e.g., pronunciation, conversation, storytelling)"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Implement teacher/instructor functionality that allows viewing and managing student speaking practice sessions",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Teacher can view list of students and their practice activities",
+        "Teacher can access student speaking practice records",
+        "Clear separation between student and teacher views"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Store speaking practice session data including exercise prompts, completion status, and timestamps in the backend",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Practice sessions are persisted with unique identifiers",
+        "Each session tracks the exercise prompt and completion status",
+        "Sessions are associated with specific users"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Create a library of English speaking exercise prompts covering different proficiency levels and topics",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Include beginner, intermediate, and advanced level prompts",
+        "Cover various topics such as daily conversations, professional scenarios, and descriptive exercises",
+        "Prompts are stored in the backend and retrievable by the frontend"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Design a creative, engaging visual theme with warm, educational aesthetics that encourages language learning, using colors and typography that feel welcoming and motivating for learners of all ages",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Visual theme is consistent across all pages and components",
+        "Color palette and typography create a friendly, educational atmosphere",
+        "Layout promotes focus and reduces cognitive load during practice sessions"
+      ]
+    }
+  ],
+  "constraints": [],
+  "nonGoals": [
+    "Real-time voice recording or speech recognition",
+    "Video calling or live teacher-student interaction",
+    "Third-party authentication integrations",
+    "Mobile app development",
+    "Integration with external language learning APIs"
+  ],
+  "imageRequirements": {
+    "required": [
+      "Friendly teacher illustration with welcoming expression for homepage hero section (teacher-hero.dim_800x600.png)",
+      "Simple microphone icon for speaking practice button (microphone-icon.dim_64x64.png)",
+      "Book and speech bubble illustration for learning sections (learning-illustration.dim_400x300.png)"
+    ],
+    "edits": []
+  }
+}

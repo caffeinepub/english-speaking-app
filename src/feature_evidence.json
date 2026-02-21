@@ -1,0 +1,99 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-a-user-interface-for-english-speaking-practice-sessions-where-learners-can-view-conversation-prompts-and-practice-speaking-exercises",
+      "featureTitle": "Create a user interface for English speaking practice sessions where learners can view conversation prompts and practice speaking exercises",
+      "files": [
+        "frontend/src/components/LoginButton.tsx",
+        "frontend/src/components/ProfileSetupModal.tsx",
+        "frontend/src/components/PromptCard.tsx",
+        "frontend/src/components/SessionHistory.tsx",
+        "frontend/src/components/UserProfileDisplay.tsx",
+        "frontend/src/pages/PracticePage.tsx",
+        "frontend/src/pages/SessionPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-teacher-instructor-functionality-that-allows-viewing-and-managing-student-speaking-practice-sessions",
+      "featureTitle": "Implement teacher/instructor functionality that allows viewing and managing student speaking practice sessions",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/AccessDeniedScreen.tsx",
+        "frontend/src/components/Navigation.tsx",
+        "frontend/src/components/RoleGuard.tsx",
+        "frontend/src/components/SessionReviewForm.tsx",
+        "frontend/src/pages/SessionReviewPage.tsx",
+        "frontend/src/pages/TeacherDashboard.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-a-library-of-english-speaking-exercise-prompts-covering-different-proficiency-levels-and-topics",
+      "featureTitle": "Create a library of English speaking exercise prompts covering different proficiency levels and topics",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/PromptFilters.tsx",
+        "frontend/src/pages/AdminPromptManagement.tsx",
+        "frontend/src/pages/PromptLibrary.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-design-a-creative-engaging-visual-theme-with-warm-educational-aesthetics-that-encourages-language-learning-using-colors-and-typography-that-feel-welcoming-and-motivating-for-learners-of-all-ages",
+      "featureTitle": "Design a creative, engaging visual theme with warm, educational aesthetics that encourages language learning, using colors and typography that feel welcoming and motivating for learners of all ages",
+      "files": [
+        "frontend/src/components/Layout.tsx",
+        "frontend/src/components/WelcomeHero.tsx",
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    }
+  ]
+}
